@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings
+  RyanairMobileTest
+
+  Created by degomos on 26/07/2020.
+  Copyright © 2020 degomos. All rights reserved.
+*/
+
+"WARNING" = "Warning";
+"NOT_INTERNET_CONNECTION" = "No internet connection.";
+"ERROR_INFO" = "Error info: ";
+"SEARCH_FLIGHTS" = "Search Flights";
+"FROM" = "From";
+"TO" = "To";
+"FLY_OUT" = "Fly Out";
+"PASSENGERS" = "Passengers";
+"DEFAULT_TO_COUNTRY_NAME" = "-";
+"DEFAULT_FROM_CODE" = "LIS";
+"DEFAULT_FROM_COUNTRY_NAME" = "Lisbon";
+"SEARCHBAR_PLACEHOLDER" = "Search country name ou code";
+"SELECT" = "Confirm";
+"CANCEL" = "Cancel";
+"ADULTS" = "Adults";
+"ADULTS_SUBTITLE" = "16+ years";
+"TEENS" = "Teens";
+"TEENS_SUBTITLE" = "12-15 years";
+"CHILDREN" = "Children";
+"CHILDREN_SUBTITLE" = "2-11 years";
+"ERROR_TRIP" = "No flights found.";
+"DATE" = "Date: ";
+"FLIGHT_NUMBER" = "Flight Nº: ";
+"REGULAR_FARE" = "Fare: ";
+

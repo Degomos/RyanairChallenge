@@ -1,0 +1,6 @@
+framework module Pods_RyanairMobileTest {
+  umbrella header "Pods-RyanairMobileTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
