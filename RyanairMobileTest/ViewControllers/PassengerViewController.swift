@@ -28,7 +28,7 @@ class PassengerViewController: UIViewController {
         configure()
         setViewWithData()
     }
-    
+    //configure button
     func configure() {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
@@ -38,6 +38,7 @@ class PassengerViewController: UIViewController {
         btnConfirm.setAttributedTitle(txt, for: .normal)
     }
     
+    //Setup with data
     func setViewWithData() {
         adultsPI.index = 0
         adultsPI.max = 6

@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Selected station enumaration
 enum SelectedStation {
     case from
     case to

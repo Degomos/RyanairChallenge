@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Model class for Stations(Airport) markets
 class MarketsItemDataModel {
     var code: String!
     var group: String!

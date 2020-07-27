@@ -9,22 +9,20 @@ import UIKit
 
 class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableViewSelectionList: UITableView!
     
     let reuseIdentifier = "ResultTableViewCell"
-    
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
-    
+    //configure table view
     func configure() {
         tableViewSelectionList.dataSource = self
         tableViewSelectionList.delegate = self
-        tableViewSelectionList.separatorStyle = .none
+        tableViewSelectionList.separatorStyle = .singleLine
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

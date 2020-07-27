@@ -10,11 +10,14 @@ import Foundation
 import Alamofire
 
 class RestRequester {
-    func proceedServerResquest(url: String, params: String, successHandler: @escaping ([String: Any]?) -> ()) {
-        self.proceedServerRequest(silentCall: false, url: url, params: params, successHandler: successHandler)
-    }
-    
-    func proceedServerRequest(silentCall: Bool, url: String, params: String, successHandler: @escaping ([String: Any]?) -> ()) {
+    /**
+     * Function proceedServerRequest
+     * Rest request to the server
+     * @param url String url to the server
+     * @param params String parameters to append to the url
+     * @return successHandler json with response from server 
+     */
+    func proceedServerRequest(url: String, params: String, successHandler: @escaping ([String: Any]?) -> ()) {
         if Reachability.isConnectedToNetwork() {
             AF.request(url + params, method: .get, encoding: URLEncoding.default).responseJSON(completionHandler: { (response) in
                 switch response.result {
@@ -28,9 +31,7 @@ class RestRequester {
                     }
                     break
                 case .failure(let error):
-                    if !silentCall {
-                        ShowAlert.show(title: "WARNING".localized, message: error.localizedDescription, vc: UIApplication.getTopViewController()!)
-                    }
+                    ShowAlert.show(title: "WARNING".localized, message: error.localizedDescription, vc: UIApplication.getTopViewController()!)
                     break
                 }
             })

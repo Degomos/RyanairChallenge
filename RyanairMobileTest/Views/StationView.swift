@@ -31,7 +31,7 @@ class StationView: UIView {
         super.init(coder: aDecoder)
         configure()
     }
-    
+    //Configure view with data
     func configure() {
         containerView = loadViewFromNib()
         containerView.frame = bounds

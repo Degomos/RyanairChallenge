@@ -23,7 +23,6 @@ class CalenderViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var lbl_sex: UILabel!
     @IBOutlet weak var lbl_sab: UILabel!
     @IBOutlet weak var lblName: UILabel!
-    @IBOutlet weak var lbl_minute: UILabel!
     @IBOutlet var view_bgView: UIView!
     @IBOutlet weak var btn_select: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!

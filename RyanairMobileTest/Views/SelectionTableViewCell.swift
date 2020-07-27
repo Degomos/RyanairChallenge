@@ -9,7 +9,7 @@
 import UIKit
 
 class SelectionTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var lblCode: UILabel!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblCountryName: UILabel!
@@ -18,7 +18,7 @@ class SelectionTableViewCell: UITableViewCell {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .left
         let paragraphTwo = NSMutableParagraphStyle()
-        paragraphTwo.alignment = .center
+        paragraphTwo.alignment = .right
         
         lblCode.attributedText = NSMutableAttributedString(string: data.code, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: CGFloat(GENK.txtSize.sMediumPlus)), NSAttributedString.Key.foregroundColor: UIColor.blue, NSAttributedString.Key.paragraphStyle: paragraphTwo])
         

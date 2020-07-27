@@ -22,23 +22,23 @@ class SelectionListViewController: UIViewController, UITableViewDelegate, UITabl
     var selectedStation: SelectedStation!
     var filteredStations = [StationsItemDataModel]()
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       configure()
+        configure()
     }
-    
+    //Configure tableview, searchBar and station list
     func configure() {
         tableViewSelectionList.dataSource = self
         tableViewSelectionList.delegate = self
-        tableViewSelectionList.separatorStyle = .none
+        tableViewSelectionList.separatorStyle = .singleLine
         searchBar.delegate = self
         searchBar.placeholder = "SEARCHBAR_PLACEHOLDER".localized
         searchBar.searchBarStyle = .prominent
         
         filteredStations = appDelegate.stationsList
     }
-    
+    //Filter search stations
     func filteredContentForSearchText(searchText: String) {
         filteredStations = appDelegate.stationsList.filter({ (station: StationsItemDataModel) -> Bool in
             if searchBarEmpty() {
@@ -50,7 +50,7 @@ class SelectionListViewController: UIViewController, UITableViewDelegate, UITabl
         
         tableViewSelectionList.reloadData()
     }
-    
+    //Check is searchBar text is empty
     func searchBarEmpty() -> Bool {
         return searchBar.text?.isEmpty ?? true
     }
@@ -58,7 +58,7 @@ class SelectionListViewController: UIViewController, UITableViewDelegate, UITabl
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredStations.count
     }
@@ -67,7 +67,7 @@ class SelectionListViewController: UIViewController, UITableViewDelegate, UITabl
         let selectionResult = filteredStations[indexPath.row]
         let cell = tableViewSelectionList.dequeueReusableCell(withIdentifier: reuseIdentifier) as! SelectionTableViewCell
         cell.selectionStyle = .gray
-            cell.setUpTableViewCell(data: selectionResult)
+        cell.setUpTableViewCell(data: selectionResult)
         return cell
     }
     

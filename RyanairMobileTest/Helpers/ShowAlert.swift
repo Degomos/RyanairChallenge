@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class ShowAlert {
-    
     /**
      * Function show 
      * Show Alert on Ui

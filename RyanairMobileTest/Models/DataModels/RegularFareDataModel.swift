@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Model class for Search flights regular fare
 class RegularFareDataModel {
     var amount: Double!
     var count: Int!

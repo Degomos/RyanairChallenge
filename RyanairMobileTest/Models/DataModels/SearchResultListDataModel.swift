@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Model class for Search flights
 class SearchResultListDataModel {
     var searchList: [NSDictionary]!
     

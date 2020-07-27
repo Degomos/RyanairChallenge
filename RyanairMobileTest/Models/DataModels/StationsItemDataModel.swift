@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Model class for Stations(Airport) item
 class StationsItemDataModel {
     var code: String!
     var name: String!

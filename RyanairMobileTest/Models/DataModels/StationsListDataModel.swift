@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Model class for Stations(Airport) list
 class StationsListDataModel {
     var stations: [NSDictionary]!
     

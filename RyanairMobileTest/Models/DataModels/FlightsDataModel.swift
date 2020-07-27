@@ -8,8 +8,8 @@
 
 import Foundation
 
+//Model class for Search flights item
 class FlightsDataModel {
-    
     var duration: String!
     var faresLeft: String!
     var flightKey: String!

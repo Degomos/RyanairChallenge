@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 
+//Extension to get top viewcontroller
 extension UIApplication {
     class func getTopViewController(base: UIViewController? = UIWindow.key!.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
@@ -20,7 +21,7 @@ extension UIApplication {
         return base
     }
 }
-
+//Extension to support retro compactibility of keyWindow
 extension UIWindow {
     static var key: UIWindow? {
         if #available(iOS 13, *) {
@@ -30,7 +31,6 @@ extension UIWindow {
         }
     }
 }
-
 //Extension to localizable strings
 extension String {
     var localized: String {
@@ -40,7 +40,6 @@ extension String {
         return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "", comment: "")
     }
 }
-
 //get first day of the month
 extension Date {
     var weekday: Int {
@@ -50,7 +49,6 @@ extension Date {
         return Calendar.current.date(from: Calendar.current.dateComponents([.year,.month], from: self))!
     }
 }
-
 //get date from string
 extension String {
     static var dateFormatter: DateFormatter = {

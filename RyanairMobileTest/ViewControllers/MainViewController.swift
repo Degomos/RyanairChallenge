@@ -28,7 +28,7 @@ class MainViewController: UIViewController, StationViewDelegate, FlyOutViewDeleg
         super.viewWillAppear(animated)
         isStationEmpty()
     }
-    
+    //Configure button with initial values
     func configureUI() {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
@@ -37,7 +37,7 @@ class MainViewController: UIViewController, StationViewDelegate, FlyOutViewDeleg
         btnSearchFlights.layer.cornerRadius = 5
         btnSearchFlights.setAttributedTitle(txt, for: .normal)
     }
-    
+    //Setup all the view in the main view controller with data
     func setViewWithData() {
         let defaultTo = StationsItemDataModel(json: ["code": "DEFAULT_TO_COUNTRY_NAME".localized, "countryName": "DEFAULT_TO_COUNTRY_NAME".localized])
         let defaultFrom = StationsItemDataModel(json: ["code": "DEFAULT_FROM_CODE".localized, "countryName": "DEFAULT_FROM_COUNTRY_NAME".localized])
@@ -56,13 +56,13 @@ class MainViewController: UIViewController, StationViewDelegate, FlyOutViewDeleg
         stackViewMain.addArrangedSubview(flyOutView)
         stackViewMain.addArrangedSubview(passengersView)
     }
-    
+    //Check if stationList array is empty
     func isStationEmpty() {
         if appdelegate.stationsList.isEmpty {
             getStations()
         }
     }
-    
+    //Resquest all stations
     func getStations() {
         Networking().getStations { (responseObject) in
             for st in responseObject!.stations {
@@ -72,19 +72,19 @@ class MainViewController: UIViewController, StationViewDelegate, FlyOutViewDeleg
             self.setViewWithData()
         }
     }
-    
+    //Present viewcontroller with list of stations
     func listStation(selectedStation: SelectedStation) {
         Utils.selectionListViewController(selectedStation: selectedStation, viewController: self)
     }
-    
+    //Present viewController with calendar
     func flyOutDate() {
         Utils.calendarViewController(viewController: self)
     }
-    
+    //Present viewController with passenger
     func passengers() {
         Utils.passengerViewController(viewController: self)
     }
-    
+    //Callback from viewcontroller with list of stations
     func didTapTableView(selectedCode: String, selectedStation: SelectedStation) {
         let st = setSelectedStation(code: selectedCode)
         switch selectedStation {
@@ -93,12 +93,12 @@ class MainViewController: UIViewController, StationViewDelegate, FlyOutViewDeleg
             appdelegate.stFrom = st.code
             break
         case .to:
-            stationView.updateToInfo = setSelectedStation(code: selectedCode)
+            stationView.updateToInfo = st
             appdelegate.stTo = st.code
             break
         }
     }
-    
+    //Fetch current selected station from list of stations
     func setSelectedStation(code: String) -> StationsItemDataModel {
         let filteredStations = appdelegate.stationsList.filter({ (station: StationsItemDataModel) -> Bool in
             return station.code.lowercased().contains(code.lowercased())
@@ -106,13 +106,13 @@ class MainViewController: UIViewController, StationViewDelegate, FlyOutViewDeleg
         
         return filteredStations[0]
     }
-    
+    //Callback from viewcontroller with calendar
     func exitCalendarView(currentYear: Int, currentMonth: Int, currentDay: Int) {
         let selectedDate =  "\(currentYear)-\(currentMonth)-\(currentDay)"
         appdelegate.selectionDate = selectedDate
         flyOutView.updateFlyOutDate = selectedDate
     }
-    
+    //Callback from viewController with passenger selection
     func passenger(adt: Int, teen: Int, chd: Int) {
         var selectPassengers = "\(adt) " + "ADULTS".localized
         appdelegate.adt = adt
@@ -126,7 +126,7 @@ class MainViewController: UIViewController, StationViewDelegate, FlyOutViewDeleg
         }
         passengersView.updatePassengerInfo = selectPassengers
     }
-    
+    //Resquest flights availability
     @IBAction func btnSearchFlightsTapped(_ sender: UIButton) {
         Networking().getSearchResult(origin: appdelegate.stFrom, destination: appdelegate.stTo, dateout: appdelegate.selectionDate, adt: "\(appdelegate.adt)", teen: "\(appdelegate.teen)", chd: "\(appdelegate.chd)") { (responseObject) in
             if let searchList = responseObject!.searchList.first {

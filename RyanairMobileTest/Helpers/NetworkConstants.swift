@@ -12,6 +12,7 @@ struct NETWK {
     struct URL {
         static let stBaseUrl = "https://tripstest.ryanair.com/"
         static let stPath = "static/stations.json"
+        static let searchBaseUrl = "https://sit-nativeapps.ryanair.com/"
         static let searchPath = "api/v4/Availability?"
     }
 }
